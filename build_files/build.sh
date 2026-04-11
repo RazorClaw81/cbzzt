@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y plasma-discover plasma-discover-kns dfu-util
+dnf5 install -y plasma-discover plasma-discover-* dfu-util
 
 sed -i 's/^Exec=plasma-discover/& --backends flatpak-backend,rpm-ostree-backend,fwupd-backend/' /usr/share/applications/org.kde.discover.desktop
 # Use a COPR Example:
