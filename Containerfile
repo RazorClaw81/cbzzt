@@ -1,6 +1,7 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
+COPY system_files /
 
 # Base Image
 FROM ghcr.io/ublue-os/bazzite:stable
@@ -35,6 +36,11 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
     
+    dnf5 -y install \
+        discover \
+        dfu-util && \
+    sed -i 's/^Exec=plasma-discover/& --backends flatpak-backend,rpm-ostree-backend,fwupd-backend/' /usr/share/applications/org.kde.discover.desktop && \
+    /ctx/cleanup
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
