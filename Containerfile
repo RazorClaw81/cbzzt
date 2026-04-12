@@ -1,7 +1,7 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/share/ublue-os/topgrade.toml
+#COPY system_files/desktop/shared /
 
 # Base Image
 FROM ghcr.io/ublue-os/bazzite:stable
