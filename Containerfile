@@ -2,6 +2,7 @@
 FROM scratch AS ctx
 COPY build_files /
 COPY system_files/desktop/shared /
+COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/custom/
 
 # Base Image
 FROM ghcr.io/ublue-os/bazzite:stable
