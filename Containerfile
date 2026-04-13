@@ -1,8 +1,6 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-COPY system_files/desktop/shared /
-COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/custom/
 
 # Base Image
 FROM ghcr.io/ublue-os/bazzite:stable
@@ -30,6 +28,9 @@ FROM ghcr.io/ublue-os/bazzite:stable
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
+
+#COPY system_files/desktop/shared /
+COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/custom/
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
