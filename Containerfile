@@ -29,8 +29,8 @@ FROM ghcr.io/ublue-os/bazzite:stable
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-#COPY system_files/desktop/shared /
-COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/custom/
+COPY system_files/desktop/shared /
+#COPY system_files/desktop/shared/usr/share/ublue-os/topgrade.toml /usr/custom/
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
