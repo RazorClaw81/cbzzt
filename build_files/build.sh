@@ -13,12 +13,13 @@ set -ouex pipefail
 dnf5 install -y \
     plasma-discover-flatpak \
     plasma-discover-kns \
-    plasma-discover-libs \
-    plasma-discover-notifier \
-    plasma-discover-offline-updates \
-    plasma-discover-packagekit \
+    fwupd-discover-libs \
+    #plasma-discover-libs \
+    #plasma-discover-notifier \
+    #plasma-discover-offline-updates \
+    #plasma-discover-packagekit \
     plasma-discover-rpm-ostree \
-    plasma-discover-snap \
+    #plasma-discover-snap \
     dfu-util
 
 sed -i 's/^Exec=plasma-discover/& --backends flatpak-backend,rpm-ostree-backend,fwupd-backend/' /usr/share/applications/org.kde.discover.desktop
