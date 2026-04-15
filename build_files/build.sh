@@ -13,10 +13,10 @@ set -ouex pipefail
     #plasma-discover-offline-updates \
     #plasma-discover-packagekit \
     #plasma-discover-snap \
+    #fwupd-discover-libs \
 dnf5 install -y \
     plasma-discover-flatpak \
     plasma-discover-kns \
-    fwupd-discover-libs \
     plasma-discover-libs \
     plasma-discover-notifier \
     plasma-discover-rpm-ostree \
