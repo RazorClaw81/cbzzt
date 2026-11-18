@@ -19,10 +19,9 @@ dnf5 install -y \
     plasma-discover-kns \
     plasma-discover-libs \
     plasma-discover-notifier \
-    plasma-discover-rpm-ostree \
     dfu-util
 
-sed -i 's/^Exec=plasma-discover/& --backends flatpak-backend,rpm-ostree-backend,fwupd-backend/' /usr/share/applications/org.kde.discover.desktop
+sed -i 's/^Exec=plasma-discover/& --backends flatpak-backend,fwupd-backend/' /usr/share/applications/org.kde.discover.desktop
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
